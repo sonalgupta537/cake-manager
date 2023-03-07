@@ -1,3 +1,1 @@
-web: java -Xms256m -jar server.jar 
-cache: java -jar mycache.jar
-web_foo: java -jar other.jar
+web: java -Dfile.encoding=UTF-8 -Xms2g -Xmx2g -jar myapplication.jar
