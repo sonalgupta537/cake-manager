@@ -1,1 +1,1 @@
-web: java -jar build/libs/cake-manager-1.0.jar
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar build/libs/cake-manager-1.0.jar

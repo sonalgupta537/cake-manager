@@ -38,6 +38,9 @@ tasks.named('test') {
 }
 
 bootJar{
+from(project.rootDir) {
+		include 'Procfile'
+	}
 	baseName = 'cake-manager' 
     version = '1.0'
  }
