@@ -12,7 +12,5 @@ artifacts:
   type: zip
   files:
     - 'Procfile'
-    - 'build/libs/*.jar'
-    - .ebextensions/**/*
-    - 'Procfile'
+    - 'build/libs/cake-manager-1.0.jar'
   discard-paths: yes
