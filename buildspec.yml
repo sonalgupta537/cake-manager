@@ -12,4 +12,5 @@ artifacts:
   type: zip
   files:
     - 'build/libs/*.jar'
+    - 'Procfile'
   discard-paths: yes
