@@ -38,10 +38,7 @@ tasks.named('test') {
 }
 
 bootJar{
-	from('./.ebextensions') { into '.ebextensions' }
+	baseName = 'cake-manager' 
+    version = '1.0'
  }
- 
- shadowJar {
-    archiveName = 'application.jar'
-}
 
