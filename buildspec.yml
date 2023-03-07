@@ -9,6 +9,7 @@ phases:
     commands:
       - echo Build completed successfully
 artifacts:
+  type: zip
   files:
     - 'build/libs/*.jar'
   discard-paths: yes
