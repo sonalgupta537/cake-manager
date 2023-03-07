@@ -1,0 +1,1 @@
+web: java -Dserver.port=8080 -jar build/libs/cake-manager-1.0.jar
