@@ -11,5 +11,4 @@ phases:
 artifacts:
   files:
     - 'build/libs/*.jar'
-    - .ebextensions/**/*
   discard-paths: yes
