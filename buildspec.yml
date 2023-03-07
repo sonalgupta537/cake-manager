@@ -9,6 +9,10 @@ phases:
     commands:
       - echo Build completed successfully
 artifacts:
+  type: zip
   files:
+    - 'Procfile'
     - 'build/libs/*.jar'
+    - .ebextensions/**/*
+    - 'Procfile'
   discard-paths: yes
