@@ -40,4 +40,8 @@ tasks.named('test') {
 bootJar{
 	from('./.ebextensions') { into '.ebextensions' }
  }
+ 
+ shadowJar {
+    archiveName = 'application.jar'
+}
 
