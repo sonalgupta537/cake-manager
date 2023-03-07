@@ -1,14 +1,15 @@
 version: 0.2
 
 phases:
+  install:
+   commands:
+     - echo Entering install phase...
+     - echo Nothing to do now
   build:
     commands:
-      - echo Entered the build phase...
-      - mvn clean package
-  post_build:
-    commands:
-      - echo Build completed successfully
+     - echo Build started on `date`
+     - gradle build
 artifacts:
+  type: zip
   files:
-    - target/cake-manager.jar
-  discard-paths: yes
+    - 'build/libs/cake-manager.jar'
