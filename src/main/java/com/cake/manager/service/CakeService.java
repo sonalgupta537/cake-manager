@@ -112,7 +112,11 @@ public class CakeService {
 	 * @return the cake
 	 */
 	public Cake updateExistingCake(Cake cake) {
-		return cakeRepo.save(cake);
+		Cake existingCake = cakeRepo.findById(cake.getId()).orElse(null);
+        existingCake.setTitle(cake.getTitle());
+        existingCake.setDesc(cake.getDesc());
+        existingCake.setImage(cake.getImage());
+        return cakeRepo.save(existingCake);
 	}
 
 	/**
@@ -134,7 +138,7 @@ public class CakeService {
 	public String addUser(UserInfo userInfo) {
 		userInfo.setPassword(passwordEncoder.encode(userInfo.getPassword()));
 		repository.save(userInfo);
-		return "user added to system";
+		return "user added to the system";
 	}
 
 	
