@@ -11,10 +11,6 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -54,14 +50,6 @@ public class CakeService {
 
 	/** The rest template. */
 	private RestTemplate restTemplate;
-	
-	/** The jwt service. */
-	@Autowired
-	private JwtService jwtService;
-	
-	/** The authentication manager. */
-	@Autowired
-    private AuthenticationManager authenticationManager;
 
 	/**
 	 * Initalize cake data.
@@ -144,17 +132,9 @@ public class CakeService {
 	 * @return the string
 	 */
 	public String addUser(UserInfo userInfo) {
-		String pwd=userInfo.getPassword();
 		userInfo.setPassword(passwordEncoder.encode(userInfo.getPassword()));
 		repository.save(userInfo);
-		Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userInfo.getName(), pwd));
-		String token="";
-        if (authentication.isAuthenticated()) {
-            token = jwtService.generateToken(userInfo.getName());
-        } else {
-            throw new UsernameNotFoundException("invalid user request !");
-        }
-		return "user added to system and the token is "+token;
+		return "user added to system";
 	}
 
 	
